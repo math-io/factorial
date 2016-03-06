@@ -1,0 +1,57 @@
+{
+  "name": "math-factorial",
+  "version": "0.0.0",
+  "description": "Computes a factorial.",
+  "author": {
+    "name": "Philipp Burckhardt",
+    "email": "pburckhardt@outlook.com"
+  },
+  "contributors": [
+    {
+      "name": "Philipp Burckhardt",
+      "email": "pburckhardt@outlook.com"
+    }
+  ],
+  "scripts": {
+    "test": "tape \"./test/*.js\"",
+    "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- \"./test/*.js\"",
+    "coverage": "istanbul cover --dir ./reports/codecov/coverage --report lcovonly tape -- \"./test/*.js\" && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
+  "main": "./lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/math-io/factorial.git"
+  },
+  "keywords": [
+    "compute.io",
+    "compute",
+    "computation",
+    "mathematics",
+    "math.io",
+    "math-io",
+    "math",
+    "special functions",
+    "factorial",
+    "combinatorics",
+    "gamma"
+  ],
+  "bugs": {
+    "url": "https://github.com/math-io/factorial/issues"
+  },
+  "dependencies": {
+    "const-pinf-float64": "^1.0.0",
+    "math-gamma": "^1.0.2"
+  },
+  "devDependencies": {
+    "codecov": "1.x.x",
+    "compute-incrspace": "^1.0.2",
+    "const-ninf-float64": "^1.0.0",
+    "istanbul": "^0.4.1",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "math-abs": "^1.0.2",
+    "tap-spec": "4.x.x",
+    "tape": "4.x.x"
+  },
+  "license": "MIT"
+}
