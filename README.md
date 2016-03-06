@@ -4,9 +4,13 @@ Factorial Function
 
 > [Factorial][factorial-function] function.
 
-The factorial of non-negative integer `n` is denoted as `n!`. It is the product of all positive integers less than or equal to `n`. It is generalized for non-integer values
+The factorial of non-negative integer `n` is denoted as `n!`. It is the product of all positive integers less than or equal to `n`. The definition can generalized for non-integer values
 via the [Gamma][gamma-function] function, where the following relationship holds:
 
+<div class="equation" align="center" data-raw-text="n!=\Gamma(n+1)" data-equation="">
+	<img src="https://cdn.rawgit.com/math-io/factorial/48271a63295d118ebb5300eded048a6a3905b216/docs/img/eqn.svg" alt="Relationship between gamma and factorial functions">
+	<br>
+</div>
 
 ## Installation
 
