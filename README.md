@@ -149,4 +149,4 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 
 [compute-io]: https://github.com/compute-io/
 [gamma-function]: https://en.wikipedia.org/wiki/Gamma_function
-[factorial-function]: https://github.com/math-io/factorial
+[factorial-function]: https://en.wikipedia.org/wiki/Factorial
