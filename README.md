@@ -1,4 +1,4 @@
-Factorial Function
+Factorial
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -11,6 +11,7 @@ via the [Gamma][gamma-function] function, where the following relationship holds
 	<img src="https://cdn.rawgit.com/math-io/factorial/48271a63295d118ebb5300eded048a6a3905b216/docs/img/eqn.svg" alt="Relationship between gamma and factorial functions">
 	<br>
 </div>
+
 
 ## Installation
 
@@ -42,6 +43,15 @@ val = factorial( -1/2 );
 
 val = factorial( 1/2 );
 // returns ~0.886
+
+val = factorial( -10 );
+// returns NaN
+
+val = factorial( 171 );
+// returns +infinity
+
+val = factorial( NaN );
+// returns NaN
 ```
 
 
