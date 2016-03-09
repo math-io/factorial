@@ -4,13 +4,22 @@ Factorial
 
 > [Factorial][factorial-function] function.
 
-The factorial of non-negative integer `n` is denoted as `n!`. It is the product of all positive integers less than or equal to `n`. The definition can generalized for non-integer values
-via the [Gamma][gamma-function] function, where the following relationship holds:
+The [factorial][factorial-function] function may be defined as the product
 
-<div class="equation" align="center" data-raw-text="n!=\Gamma(n+1)" data-equation="">
-	<img src="https://cdn.rawgit.com/math-io/factorial/48271a63295d118ebb5300eded048a6a3905b216/docs/img/eqn.svg" alt="Relationship between gamma and factorial functions">
-	<br>
-</div>
+
+
+or according to the recurrence relation
+
+
+
+In all definitions, 
+
+
+following the convention for an [empty product][empty-product]. The [Gamma][gamma-function] extends the [factorial][factorial-function] for non-integer values.
+
+
+
+For all definitions, the [factorial][factorial-function] of a negative `integer` is `undefined`.
 
 
 ## Installation
@@ -29,7 +38,7 @@ var factorial = require( 'math-factorial' );
 
 #### factorial( x )
 
-Evaluates the [factorial function][factorial-function].
+Evaluates the [factorial][factorial-function] function.
 
 ``` javascript
 var val = factorial( 3 );
@@ -158,5 +167,6 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 [testling]: https://ci.testling.com
 
 [compute-io]: https://github.com/compute-io/
-[gamma-function]: https://en.wikipedia.org/wiki/Gamma_function
+[gamma-function]: https://github.com/math-io/gamma
 [factorial-function]: https://en.wikipedia.org/wiki/Factorial
+[empty-product]: https://en.wikipedia.org/wiki/Empty_product
