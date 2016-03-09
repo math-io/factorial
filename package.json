@@ -39,6 +39,8 @@
     "math-io",
     "math",
     "special functions",
+    "special",
+    "function",
     "factorial",
     "fact",
     "combinatorics",
