@@ -58,6 +58,7 @@
     "browserify": "13.x.x",
     "codecov": "1.x.x",
     "compute-incrspace": "^1.0.2",
+    "const-eps-float64": "^1.0.0",
     "const-ninf-float64": "^1.0.0",
     "istanbul": "^0.4.1",
     "jshint": "2.x.x",
