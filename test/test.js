@@ -7,21 +7,20 @@ var incrspace = require( 'compute-incrspace' );
 var abs = require( 'math-abs' );
 var PINF = require( 'const-pinf-float64' );
 var NINF = require( 'const-ninf-float64' );
+var EPS = require( 'const-eps-float64' );
 var factorial = require( './../lib' );
 
 
 // FIXTURES //
 
-var data1 = require( './fixtures/data1.json' );
-var expected1 = require( './fixtures/expected1.json' );
-var data2 = require( './fixtures/data2.json' );
-var expected2 = require( './fixtures/expected2.json' );
+var integers = require( './fixtures/integers.json' );
+var decimals = require( './fixtures/decimals.json' );
 
 
 // TESTS //
 
 tape( 'main export is a function', function test( t ) {
-	t.ok( typeof factorial === 'function', 'main export is a function' );
+	t.equal( typeof factorial, 'function', 'main export is a function' );
 	t.end();
 });
 
@@ -37,10 +36,15 @@ tape( 'if provided a negative integer, the function returns `NaN`', function tes
 	t.end();
 });
 
-
 tape( 'if provided negative infinity, the function returns `NaN`', function test( t ) {
 	var v = factorial( NINF );
 	t.ok( v !== v, 'returns NaN when provided negative infinity' );
+	t.end();
+});
+
+tape( 'if provided positive infinity, the function returns `+infinity`', function test( t ) {
+	var v = factorial( PINF );
+	t.ok( v, PINF, 'returns +infinity when provided +infinity' );
 	t.end();
 });
 
@@ -51,7 +55,7 @@ tape( 'if provided `NaN`, the function returns `NaN`', function test( t ) {
 });
 
 tape( 'if `x > 170.6144...`, the function returns positive infinity', function test( t ) {
-	var values = incrspace( 172, 1000, 10.1234 );
+	var values = incrspace( 170.615, 1000, 10.1234 );
 	var v;
 	var i;
 
@@ -74,33 +78,54 @@ tape( 'if `x < -171.56749...`, the function returns positive infinity', function
 	t.end();
 });
 
-
-tape( 'the function evaluates the factorial function (positive integers)', function test( t ) {
+tape( 'the function evaluates the factorial function (positive integers < 171)', function test( t ) {
+	var expected;
 	var delta;
 	var tol;
+	var x;
 	var v;
 	var i;
 
-	for ( i = 0; i < data1.length; i++ ) {
-		v = factorial( data1[ i ] );
-		delta = abs( v - expected1[ i ] );
-		tol = 2.75e-12 * Math.max( 1, abs( v ), abs( expected1[ i ] ) );
-		t.ok( delta <= tol, 'within tolerance. x: ' + data1[ i ] + '. Value: ' + v + '. Expected: ' + expected1[ i ] + '. Tolerance: ' + tol + '.' );
+	x = integers.x;
+	expected = integers.expected;
+	for ( i = 0; i < x.length; i++ ) {
+		v = factorial( x[ i ] );
+		if ( v === expected[ i ] ) {
+			t.equal( v, expected[ i ], 'returns '+expected[i]+' when provided '+x[i] );
+		} else {
+			delta = abs( v - expected[ i ] );
+			tol = EPS * Math.max( 1, abs( v ), abs( expected[ i ] ) );
+			t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
+		}
+	}
+	t.end();
+});
+
+tape( 'if provided positive integers greater than `170`, the function returns positive infinity', function test( t ) {
+	var i;
+	var v;
+	for ( i = 171; i < 500; i++ ) {
+		v = factorial( i );
+		t.equal( v, PINF, 'returns +infinity when provided ' + i );
 	}
 	t.end();
 });
 
 tape( 'the function evaluates the factorial function (decimal values)', function test( t ) {
+	var expected;
 	var delta;
 	var tol;
+	var x;
 	var v;
 	var i;
 
-	for ( i = 0; i < data2.length; i++ ) {
-		v = factorial( data2[ i ] );
-		delta = abs( v - expected2[ i ] );
-		tol = 2.75e-12 * Math.max( 1, abs( v ), abs( expected2[ i ] ) );
-		t.ok( delta <= tol, 'within tolerance. x: ' + data2[ i ] + '. Value: ' + v + '. Expected: ' + expected2[ i ] + '. Tolerance: ' + tol + '.' );
+	x = decimals.x;
+	expected = decimals.expected;
+	for ( i = 0; i < x.length; i++ ) {
+		v = factorial( x[ i ] );
+		delta = abs( v - expected[ i ] );
+		tol = 2e-14 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
+		t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
 });

@@ -1,16 +1,39 @@
-Factorial Function
+Factorial
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Factorial][factorial-function] function.
 
-The factorial of non-negative integer `n` is denoted as `n!`. It is the product of all positive integers less than or equal to `n`. The definition can generalized for non-integer values
-via the [Gamma][gamma-function] function, where the following relationship holds:
+The [factorial][factorial-function] function may be defined as the product
 
-<div class="equation" align="center" data-raw-text="n!=\Gamma(n+1)" data-equation="">
-	<img src="https://cdn.rawgit.com/math-io/factorial/48271a63295d118ebb5300eded048a6a3905b216/docs/img/eqn.svg" alt="Relationship between gamma and factorial functions">
+<div class="equation" align="center" data-raw-text="n! = \prod_{k=1}^n k" data-equation="eq:factorial_function">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/product.svg" alt="Factorial function definition">
 	<br>
 </div>
+
+or according to the recurrence relation
+
+<div class="equation" align="center" data-raw-text="n! = \begin{cases}1 &amp; \textrm{if } n = 0,\\(n-1)! \times n &amp; \textrm{if } n > 1\end{cases}" data-equation="eq:factorial_recurrence_relation">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/recurrence_relation.svg" alt="Factorial function recurrence relation">
+	<br>
+</div>
+
+Following the convention for an [empty product][empty-product], in all definitions, 
+
+<div class="equation" align="center" data-raw-text="0! = 1" data-equation="eq:zero_factorial">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/zero_factorial.svg" alt="Zero factorial">
+	<br>
+</div>
+
+The [Gamma][gamma-function] extends the [factorial][factorial-function] for non-integer values.
+
+<div class="equation" align="center" data-raw-text="n! = \Gamma(n+1)" data-equation="eq:factorial_function_and_gamma">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/gamma.svg" alt="Factorial function extension via the Gamma function">
+	<br>
+</div>
+
+The [factorial][factorial-function] of a __negative__ integer is `undefined`.
+
 
 ## Installation
 
@@ -28,7 +51,7 @@ var factorial = require( 'math-factorial' );
 
 #### factorial( x )
 
-Evaluates the [factorial function][factorial-function].
+Evaluates the [factorial][factorial-function] function.
 
 ``` javascript
 var val = factorial( 3 );
@@ -42,6 +65,15 @@ val = factorial( -1/2 );
 
 val = factorial( 1/2 );
 // returns ~0.886
+
+val = factorial( -10 );
+// returns NaN
+
+val = factorial( 171 );
+// returns +infinity
+
+val = factorial( NaN );
+// returns NaN
 ```
 
 
@@ -148,5 +180,6 @@ Copyright &copy; 2016. The [Compute.io][compute-io] Authors.
 [testling]: https://ci.testling.com
 
 [compute-io]: https://github.com/compute-io/
-[gamma-function]: https://en.wikipedia.org/wiki/Gamma_function
+[gamma-function]: https://github.com/math-io/gamma
 [factorial-function]: https://en.wikipedia.org/wiki/Factorial
+[empty-product]: https://en.wikipedia.org/wiki/Empty_product
