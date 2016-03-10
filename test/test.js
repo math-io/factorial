@@ -36,10 +36,15 @@ tape( 'if provided a negative integer, the function returns `NaN`', function tes
 	t.end();
 });
 
-
 tape( 'if provided negative infinity, the function returns `NaN`', function test( t ) {
 	var v = factorial( NINF );
 	t.ok( v !== v, 'returns NaN when provided negative infinity' );
+	t.end();
+});
+
+tape( 'if provided positive infinity, the function returns `+infinity`', function test( t ) {
+	var v = factorial( PINF );
+	t.ok( v, PINF, 'returns +infinity when provided +infinity' );
 	t.end();
 });
 
@@ -73,8 +78,7 @@ tape( 'if `x < -171.56749...`, the function returns positive infinity', function
 	t.end();
 });
 
-
-tape( 'the function evaluates the factorial function (positive integers)', function test( t ) {
+tape( 'the function evaluates the factorial function (positive integers < 171)', function test( t ) {
 	var expected;
 	var delta;
 	var tol;
@@ -93,6 +97,16 @@ tape( 'the function evaluates the factorial function (positive integers)', funct
 			tol = EPS * Math.max( 1, abs( v ), abs( expected[ i ] ) );
 			t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
 		}
+	}
+	t.end();
+});
+
+tape( 'if provided positive integers greater than `170`, the function returns positive infinity', function test( t ) {
+	var i;
+	var v;
+	for ( i = 171; i < 500; i++ ) {
+		v = factorial( i );
+		t.equal( v, PINF, 'returns +infinity when provided ' + i );
 	}
 	t.end();
 });
