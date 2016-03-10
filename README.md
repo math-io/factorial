@@ -32,7 +32,7 @@ The [Gamma][gamma-function] function extends the [factorial][factorial-function]
 	<br>
 </div>
 
-The [factorial][factorial-function] of a __negative__ integer is `undefined`.
+The [factorial][factorial-function] of a __negative__ integer is not defined.
 
 
 ## Installation
