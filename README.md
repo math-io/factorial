@@ -25,7 +25,7 @@ Following the convention for an [empty product][empty-product], in all definitio
 	<br>
 </div>
 
-The [Gamma][gamma-function] extends the [factorial][factorial-function] for non-integer values.
+The [Gamma][gamma-function] function extends the [factorial][factorial-function] function for non-integer values.
 
 <div class="equation" align="center" data-raw-text="n! = \Gamma(n+1)" data-equation="eq:factorial_function_and_gamma">
 	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/gamma.svg" alt="Factorial function extension via the Gamma function">
