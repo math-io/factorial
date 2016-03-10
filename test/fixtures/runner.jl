@@ -23,5 +23,5 @@ x = linspace( 0, 170, 171 );
 gen( x, "./integers.json" );
 
 # Decimal values:
-x = linspace( -171.1, 169.9, 1000 );
+x = linspace( -171.1, 169.9, 1003 );
 gen( x, "./decimals.json" );
