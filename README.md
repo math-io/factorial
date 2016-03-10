@@ -6,18 +6,31 @@ Factorial
 
 The [factorial][factorial-function] function may be defined as the product
 
-
+<div class="equation" align="center" data-raw-text="n! = \prod_{k=1}^n k" data-equation="eq:factorial_function">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/product.svg" alt="Factorial function definition">
+	<br>
+</div>
 
 or according to the recurrence relation
 
-
+<div class="equation" align="center" data-raw-text="n! = \begin{cases}1 &amp; \textrm{if } n = 0,\\(n-1)! \times n &amp; \textrm{if } n > 1\end{cases}" data-equation="eq:factorial_recurrence_relation">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/recurrence_relation.svg" alt="Factorial function recurrence relation">
+	<br>
+</div>
 
 In all definitions, 
 
+<div class="equation" align="center" data-raw-text="0! = 1" data-equation="eq:zero_factorial">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/zero_factorial.svg" alt="Zero factorial">
+	<br>
+</div>
 
 following the convention for an [empty product][empty-product]. The [Gamma][gamma-function] extends the [factorial][factorial-function] for non-integer values.
 
-
+<div class="equation" align="center" data-raw-text="n! = \Gamma(n+1)" data-equation="eq:factorial_function_and_gamma">
+	<img src="https://cdn.rawgit.com/math-io/factorial/87f777e5d721ed922fc1176aea23f94f043922d2/docs/img/gamma.svg" alt="Factorial function extension via the Gamma function">
+	<br>
+</div>
 
 For all definitions, the [factorial][factorial-function] of a negative `integer` is `undefined`.
 
