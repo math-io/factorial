@@ -110,7 +110,7 @@ tape( 'the function evaluates the factorial function (decimal values)', function
 	for ( i = 0; i < x.length; i++ ) {
 		v = factorial( x[ i ] );
 		delta = abs( v - expected[ i ] );
-		tol = 2.75e-12 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
+		tol = 1.95e-14 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
 		t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
